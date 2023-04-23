@@ -14,6 +14,6 @@ func _unhandled_input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("ui_right"):
-		position.x += 1
+		position.x += 20
 	elif Input.is_action_pressed("ui_left"):
-		position.x -= 1
+		position.x -= 20
