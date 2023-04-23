@@ -9,7 +9,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kyx5"]
-radius = 59.0339
+radius = 21.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i16se"]
 friction = 0.0
@@ -48,7 +48,7 @@ size = Vector2(1067, 64)
 script = ExtResource("1_7jhqp")
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(808, 223)
+position = Vector2(596, 175)
 physics_material_override = SubResource("PhysicsMaterial_vaiks")
 gravity_scale = 0.0
 max_contacts_reported = 9999999
@@ -60,7 +60,7 @@ angular_damp_mode = 1
 
 [node name="Ball_sprite" type="Sprite2D" parent="Ball"]
 rotation = 2.32303
-scale = Vector2(0.169601, 0.169601)
+scale = Vector2(0.0592712, 0.0605121)
 texture = ExtResource("2_7sepx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
