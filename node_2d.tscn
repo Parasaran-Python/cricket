@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bu6kwb0shvyff"]
+[gd_scene load_steps=17 format=3 uid="uid://bu6kwb0shvyff"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7jhqp"]
 [ext_resource type="Texture2D" uid="uid://cars5qvgl5c08" path="res://assets/ball.bmp" id="2_7sepx"]
+[ext_resource type="Script" path="res://Bat.gd" id="3_8r6ip"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vaiks"]
 friction = 0.0
@@ -23,10 +24,10 @@ size = Vector2(41, 643.125)
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_rlls4"]
+[sub_resource type="BoxMesh" id="BoxMesh_iys48"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn036"]
-size = Vector2(1127, 60)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vi45"]
+size = Vector2(176, 41)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7vqse"]
 friction = 0.0
@@ -78,19 +79,18 @@ mesh = SubResource("BoxMesh_357n2")
 position = Vector2(274.5, 430.438)
 shape = SubResource("RectangleShape2D_ellq6")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(248, 628)
+[node name="Bat" type="StaticBody2D" parent="."]
+position = Vector2(471, 627)
 physics_material_override = SubResource("PhysicsMaterial_sxvlf")
+script = ExtResource("3_8r6ip")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2"]
-position = Vector2(350, -8.31451)
-rotation = -3.14159
-scale = Vector2(1119.6, -58.3983)
-mesh = SubResource("BoxMesh_rlls4")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Bat"]
+position = Vector2(0, -6.10352e-05)
+scale = Vector2(176, 40.7418)
+mesh = SubResource("BoxMesh_iys48")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(346, -9)
-shape = SubResource("RectangleShape2D_gn036")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
+shape = SubResource("RectangleShape2D_1vi45")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_7vqse")
