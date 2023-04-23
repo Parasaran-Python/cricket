@@ -14,7 +14,7 @@ config/name="Cricket"
 run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 boot_splash/image="res://assets/cricket_bootsplash_screen.png"
-config/icon="res://icon.svg"
+config/icon="res://assets/ball.bmp"
 
 [display]
 
