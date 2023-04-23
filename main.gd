@@ -11,5 +11,14 @@ func _process(delta):
 	pass
 
 
-func _on_ball_body_entered(body):
-	pass # Replace with function body.
+# Function to play ball hitting sound
+func _play_ball_hitting_sound():
+	var audio_stream_player = $BallHit
+	var audio_stream = load('res://ball_hit.mp3')
+	audio_stream_player.stream = audio_stream
+	audio_stream_player.volume_db = 24
+	audio_stream_player.play()
+
+
+func _ball_hit(body):
+	_play_ball_hitting_sound()

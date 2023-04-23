@@ -115,4 +115,6 @@ mesh = SubResource("BoxMesh_lm166")
 position = Vector2(577.5, 33)
 shape = SubResource("RectangleShape2D_qvhbx")
 
-[connection signal="body_entered" from="Ball" to="." method="_on_ball_body_entered"]
+[node name="BallHit" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Ball" to="." method="_ball_hit"]
