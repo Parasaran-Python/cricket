@@ -5,6 +5,11 @@ extends StaticBody2D
 func _ready():
 	pass # Replace with function body.
 
+func _unhandled_input(event):
+	if event is InputEventScreenTouch and event.pressed == true:
+		position.x = event.position.x
+	elif event is InputEventScreenDrag:
+		position.x = event.position.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
