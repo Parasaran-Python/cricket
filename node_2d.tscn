@@ -27,7 +27,7 @@ bounce = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_iys48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vi45"]
-size = Vector2(174, 41)
+size = Vector2(176, 41)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7vqse"]
 friction = 0.0
@@ -91,7 +91,6 @@ scale = Vector2(176, 40.7418)
 mesh = SubResource("BoxMesh_iys48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
-position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_1vi45")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
