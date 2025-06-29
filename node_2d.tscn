@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bu6kwb0shvyff"]
+[gd_scene load_steps=15 format=3 uid="uid://bu6kwb0shvyff"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_7jhqp"]
+[ext_resource type="Script" uid="uid://bu7gfitdq1url" path="res://main.gd" id="1_7jhqp"]
 [ext_resource type="Texture2D" uid="uid://cars5qvgl5c08" path="res://assets/ball.bmp" id="2_7sepx"]
-[ext_resource type="Script" path="res://Bat.gd" id="3_8r6ip"]
+[ext_resource type="Script" uid="uid://che1gbqs2ojqb" path="res://Bat.gd" id="3_8r6ip"]
+[ext_resource type="Texture2D" uid="uid://bx7oak2s4hv6j" path="res://assets/wall.png" id="4_wall"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vaiks"]
 friction = 0.0
@@ -15,10 +16,8 @@ radius = 21.0
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_357n2"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ellq6"]
-size = Vector2(41, 643.125)
+size = Vector2(42.5, 652.5)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sxvlf"]
 friction = 0.0
@@ -27,22 +26,18 @@ bounce = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_iys48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vi45"]
-size = Vector2(176, 41)
+size = Vector2(174, 41)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7vqse"]
 friction = 0.0
 rough = true
 bounce = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_aqoj7"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5hx8"]
-size = Vector2(44.75, 587)
-
-[sub_resource type="BoxMesh" id="BoxMesh_lm166"]
+size = Vector2(41.3438, 653.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvhbx"]
-size = Vector2(1067, 64)
+size = Vector2(1077.75, 40.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7jhqp")
@@ -51,8 +46,8 @@ script = ExtResource("1_7jhqp")
 position = Vector2(596, 175)
 physics_material_override = SubResource("PhysicsMaterial_vaiks")
 gravity_scale = 0.0
-max_contacts_reported = 9999999
 contact_monitor = true
+max_contacts_reported = 9999999
 linear_velocity = Vector2(-1000, 340)
 linear_damp_mode = 1
 angular_velocity = 10.0
@@ -70,13 +65,13 @@ shape = SubResource("CircleShape2D_6kyx5")
 position = Vector2(-252, -106)
 physics_material_override = SubResource("PhysicsMaterial_i16se")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(273.938, 430.438)
-scale = Vector2(44.125, 645.125)
-mesh = SubResource("BoxMesh_357n2")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(273.938, 430)
+scale = Vector2(0.641, 1.01562)
+texture = ExtResource("4_wall")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(274.5, 430.438)
+position = Vector2(272.25, 428.75)
 shape = SubResource("RectangleShape2D_ellq6")
 
 [node name="Bat" type="StaticBody2D" parent="."]
@@ -90,29 +85,31 @@ scale = Vector2(176, 40.7418)
 mesh = SubResource("BoxMesh_iys48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_1vi45")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_7vqse")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3"]
-position = Vector2(1134, 296.779)
-scale = Vector2(-45.8842, 587.415)
-mesh = SubResource("BoxMesh_aqoj7")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(1133, 325.78)
+scale = Vector2(0.699, 1.01319)
+texture = ExtResource("4_wall")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(1134, 296.5)
+position = Vector2(1134, 324)
 shape = SubResource("RectangleShape2D_x5hx8")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4"]
-position = Vector2(576.229, 33.4645)
-scale = Vector2(-1069.66, 66.0539)
-mesh = SubResource("BoxMesh_lm166")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(574.889, 19.4645)
+rotation = 1.5708
+scale = Vector2(0.562121, 1.68059)
+texture = ExtResource("4_wall")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(577.5, 33)
+position = Vector2(578.875, 18.75)
 shape = SubResource("RectangleShape2D_qvhbx")
 
 [node name="BallHit" type="AudioStreamPlayer2D" parent="."]
