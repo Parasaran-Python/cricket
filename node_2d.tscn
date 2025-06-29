@@ -44,12 +44,12 @@ size = Vector2(1077.75, 40.5)
 script = ExtResource("1_7jhqp")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(579, 358.25)
+position = Vector2(576, 324)
 scale = Vector2(16.7188, 9.97656)
 texture = ExtResource("5_background")
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(596, 175)
+position = Vector2(576, 150)
 physics_material_override = SubResource("PhysicsMaterial_vaiks")
 gravity_scale = 0.0
 contact_monitor = true
@@ -67,8 +67,13 @@ texture = ExtResource("2_7sepx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_6kyx5")
 
+[node name="DetectionArea" type="Area2D" parent="Ball"]
+
+[node name="DetectionShape" type="CollisionShape2D" parent="Ball/DetectionArea"]
+shape = SubResource("CircleShape2D_6kyx5")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-252, -106)
+position = Vector2(-253, -96)
 physics_material_override = SubResource("PhysicsMaterial_i16se")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
@@ -81,7 +86,7 @@ position = Vector2(272.25, 428.75)
 shape = SubResource("RectangleShape2D_ellq6")
 
 [node name="Bat" type="StaticBody2D" parent="."]
-position = Vector2(471, 627)
+position = Vector2(576, 620)
 physics_material_override = SubResource("PhysicsMaterial_sxvlf")
 script = ExtResource("3_8r6ip")
 
@@ -97,7 +102,7 @@ shape = SubResource("RectangleShape2D_1vi45")
 physics_material_override = SubResource("PhysicsMaterial_7vqse")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-position = Vector2(1133, 325.78)
+position = Vector2(1133, 324)
 scale = Vector2(0.699, 1.01319)
 texture = ExtResource("4_wall")
 
@@ -108,15 +113,15 @@ shape = SubResource("RectangleShape2D_x5hx8")
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
-position = Vector2(574.889, 19.4645)
+position = Vector2(576, 19.5)
 rotation = 1.5708
 scale = Vector2(0.562121, 1.68059)
 texture = ExtResource("4_wall")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(578.875, 18.75)
+position = Vector2(576, 18.75)
 shape = SubResource("RectangleShape2D_qvhbx")
 
 [node name="BallHit" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="body_entered" from="Ball" to="." method="_ball_hit"]
+[connection signal="body_entered" from="Ball/DetectionArea" to="." method="_ball_hit"]

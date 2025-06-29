@@ -18,8 +18,10 @@ config/icon="res://assets/ball.bmp"
 
 [display]
 
+window/size/viewport_width=1152
+window/size/viewport_height=648
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [rendering]
 

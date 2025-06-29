@@ -45,7 +45,7 @@ func _process(delta):
 		if (ball_pos.x < -margin or ball_pos.x > screen_size.x + margin or 
 			ball_pos.y < -margin or ball_pos.y > screen_size.y + margin):
 			ball_node.freeze = true  # Freeze physics temporarily
-			ball_node.global_position = Vector2(596, 175)
+			ball_node.global_position = Vector2(576, 150)
 			_show_restart_dialog()
 
 func _show_restart_dialog():
