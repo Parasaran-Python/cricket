@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bu6kwb0shvyff"]
+[gd_scene load_steps=16 format=3 uid="uid://bu6kwb0shvyff"]
 
 [ext_resource type="Script" uid="uid://bu7gfitdq1url" path="res://main.gd" id="1_7jhqp"]
 [ext_resource type="Texture2D" uid="uid://cars5qvgl5c08" path="res://assets/ball.bmp" id="2_7sepx"]
 [ext_resource type="Script" uid="uid://che1gbqs2ojqb" path="res://Bat.gd" id="3_8r6ip"]
 [ext_resource type="Texture2D" uid="uid://bx7oak2s4hv6j" path="res://assets/wall.png" id="4_wall"]
+[ext_resource type="Texture2D" uid="uid://bb1o8xm7y54e3" path="res://assets/background_wall_blue.png" id="5_background"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vaiks"]
 friction = 0.0
@@ -41,6 +42,11 @@ size = Vector2(1077.75, 40.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7jhqp")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(579, 358.25)
+scale = Vector2(16.7188, 9.97656)
+texture = ExtResource("5_background")
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(596, 175)
