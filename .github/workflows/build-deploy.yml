@@ -106,6 +106,35 @@ jobs:
           name: windows-build
           path: build/windows
 
+  export-linux:
+    name: Export Linux
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Godot templates and editor config
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mkdir -v -p ~/.config
+          mv /root/.config/godot ~/.config/godot
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Export linux build
+        run: |
+          mkdir -v -p build/linux
+          EXPORT_DIR="$(readlink -f build)"
+          godot --headless --verbose --import || true
+          godot --headless --verbose --export-release "Linux" "$EXPORT_DIR/linux/Cricket.x86_64"
+
+      - name: Upload linux artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-build
+          path: build/linux
+
   export-android:
     name: Export Android
     runs-on: ubuntu-latest
@@ -148,7 +177,7 @@ jobs:
   release:
     name: GitHub Release
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [export-web, export-windows, export-android]
+    needs: [export-web, export-windows, export-linux, export-android]
     runs-on: ubuntu-latest
     steps:
       - name: Download all artifacts
@@ -166,4 +195,5 @@ jobs:
           files: |
             Cricket-web.zip
             artifacts/windows-build/Cricket.exe
+            artifacts/linux-build/Cricket.x86_64
             artifacts/android-build/Cricket.apk
